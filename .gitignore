@@ -32,6 +32,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/lib/data/ad_unit_id.dart
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +44,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/app/src/main/res/values/strings.xml
+
+/android/app/google-services.json
+**/GoogleService-Info.plist
+**/google-services.json
+**/firebase_app_id_file.json
+
