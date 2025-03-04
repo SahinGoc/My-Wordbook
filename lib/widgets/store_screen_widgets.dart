@@ -11,7 +11,6 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/store_operations.dart';
 import '../utils/color_utils.dart';
-import '../utils/fonts_utils.dart';
 import '../utils/info_utils.dart';
 import 'colors_picker_alert.dart';
 

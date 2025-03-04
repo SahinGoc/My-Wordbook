@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_wordbook/providers/store_operations.dart';
 import 'package:flutter/material.dart';

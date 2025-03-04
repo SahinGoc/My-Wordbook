@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:my_wordbook/providers/store_operations.dart';
 import 'package:my_wordbook/widgets/edit_dictionary_alert.dart';
 import 'package:my_wordbook/widgets/set_title_alert.dart';
@@ -15,7 +14,6 @@ import '../models/dictionary.dart';
 import '../providers/theme_operations.dart';
 import '../services/analytics_service.dart';
 import '../utils/color_utils.dart';
-import '../utils/fonts_utils.dart';
 
 class MainScreenWidgets extends StatefulWidget {
   const MainScreenWidgets({super.key});
