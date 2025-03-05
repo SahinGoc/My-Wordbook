@@ -1,16 +1,33 @@
-# my_wordbook
+# 📖 Kelime Defterim  
 
-A new Flutter project.
+**Kelime Defterim**, kendi kelime defterinizi oluşturabileceğiniz, kelime öğrenebileceğiniz ve eğlenceli quizler ile bilgilerinizi pekiştirebileceğiniz bir kelime öğrenme uygulamasıdır.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Özellikler  
+✅ **Özel Sözlükler:** Kendi kelime defterlerinizi oluşturabilir, istediğiniz kelimeleri ve anlamlarını kaydedebilirsiniz.  
+✅ **Online Sözlük Desteği:** Anlamını bilmediğiniz kelimeleri hızlıca öğrenmek için online sözlük kullanabilirsiniz.  
+✅ **Quiz Modu:** Kaydettiğiniz kelimelerle farklı zorluklarda quiz yapabilir ve öğrendiğiniz kelimeleri test edebilirsiniz.  
+✅ **Puan Sistemi:** Quizlerde başarılı olarak puanlar kazanabilirsiniz.  
+✅ **Market:** Kazandığınız puanlarla  
+   - Uygulamanızı **50'den fazla** font ile değiştirebilirsiniz.  
+   - **200'den fazla** renk seçeneği ile uygulamanın görünümünü özelleştirebilirsiniz.  
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠 Kullanılan Teknolojiler  
+- **Flutter** (Uygulama geliştirme)  
+- **Firebase** (Online sözlük desteği)  
+- **SQLite** (Kelime kayıt ve quiz verileri için)  
+- **Provider** (Durum yönetimi)  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 📥 İndirme ve Kullanım  
+Uygulamayı Google Play Store'dan indirerek hemen kullanmaya başlayabilirsiniz!  
+
+📌 **İndirmek için:** [Beklemede kalın](#)  
+
+---
+
+Eğer önerilerin varsa veya hata bildirimi yapmak istersen, lütfen bizimle iletişime geç! 📩  
