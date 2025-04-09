@@ -1,5 +1,6 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:my_wordbook/services/ad_service.dart';
@@ -22,6 +23,9 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   MobileAds.instance.initialize();
   Intl.defaultLocale = 'tr_TR';
   runApp(MultiProvider(
@@ -60,11 +64,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     FirebaseAnalytics analytics = FirebaseAnalytics.instance;
     final themeOperations = Provider.of<ThemeOperations>(context);
-
     themeOperations.loadInitialThemeMode(context);
 
+    final bool isPhone = MediaQuery.of(context).size.width < 600;
+
     return ScreenUtilInit(
-        designSize: Size(393, 851),
+        designSize: isPhone ? Size(393, 851) : Size(800, 1280),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {

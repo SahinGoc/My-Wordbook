@@ -65,6 +65,7 @@ class _QuizScreenWidgetsState extends State<QuizScreenWidgets>
   bool newRecord = false;
   String questionText = '';
   String answerText = '';
+  bool isPhone = true;
 
   late final StoreOperations storeOperations;
   late bool isDarkTheme;
@@ -98,6 +99,9 @@ class _QuizScreenWidgetsState extends State<QuizScreenWidgets>
     adService = Provider.of<AdService>(context, listen: false);
     adService.disposeAd();
     adService.loadBannerAd();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      isPhone = MediaQuery.of(context).size.width < 600;
+    });
   }
 
   void _fetchQuestions() async {
@@ -169,9 +173,9 @@ class _QuizScreenWidgetsState extends State<QuizScreenWidgets>
       textAlign: TextAlign.center,
       minFontSize: 14,
       maxFontSize: 26,
-      textScaleFactor: Provider.of<ThemeOperations>(context)
-          .getTextScaleFactor(context) *
-          1.5,
+      textScaleFactor:
+          Provider.of<ThemeOperations>(context).getTextScaleFactor(context) *
+              1.5,
       style: TextStyle(
         color: Theme.of(context).scaffoldBackgroundColor,
       ),
@@ -198,11 +202,13 @@ class _QuizScreenWidgetsState extends State<QuizScreenWidgets>
       textAlign: TextAlign.center,
       minFontSize: 11,
       maxFontSize: 26,
-      textScaleFactor: Provider.of<ThemeOperations>(context)
-          .getTextScaleFactor(context),
+      textScaleFactor:
+          Provider.of<ThemeOperations>(context).getTextScaleFactor(context),
       style: TextStyle(
-          color: Theme.of(context).scaffoldBackgroundColor, fontSize: 26.sp * Provider.of<ThemeOperations>(context)
-          .getTextScaleFactor(context)),
+          color: Theme.of(context).scaffoldBackgroundColor,
+          fontSize: 26.sp *
+              Provider.of<ThemeOperations>(context)
+                  .getTextScaleFactor(context)),
     );
   }
 
@@ -532,8 +538,9 @@ class _QuizScreenWidgetsState extends State<QuizScreenWidgets>
                 Text("$currentQuestionsNumber - $numberOfQuestions",
                     style: TextStyle(
                         color: Theme.of(context).scaffoldBackgroundColor,
-                        fontSize: 18.sp * Provider.of<ThemeOperations>(context)
-                            .getTextScaleFactor(context),
+                        fontSize: 18.sp *
+                            Provider.of<ThemeOperations>(context)
+                                .getTextScaleFactor(context),
                         fontWeight: FontWeight.bold)),
               ],
             ),
@@ -652,8 +659,11 @@ class _QuizScreenWidgetsState extends State<QuizScreenWidgets>
         right: 16.0.w,
       ),
       child: ConstrainedBox(
-        constraints:
-            BoxConstraints(minWidth: 400.w, minHeight: 200.h, maxHeight: 600.h),
+        constraints: BoxConstraints(
+            minWidth: 400.w,
+            minHeight: 200.h,
+            maxHeight:
+                isPhone ? 600.h : MediaQuery.of(context).size.height * 0.5),
         child: Card(
           elevation: 4.r,
           color: ColorUtils.getOptimalTextColor(
@@ -685,9 +695,8 @@ class _QuizScreenWidgetsState extends State<QuizScreenWidgets>
       child: ConstrainedBox(
         constraints: BoxConstraints(
             minWidth: 400.w,
-            maxWidth: 400.w,
             minHeight: 200.h,
-            maxHeight: 470.h),
+            maxHeight: MediaQuery.of(context).size.height * 0.5),
         child: Card(
           elevation: 4.r,
           color: ColorUtils.getOptimalTextColor(

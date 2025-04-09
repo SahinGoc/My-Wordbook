@@ -135,8 +135,8 @@ class _DictionaryScreenWidgetsState extends State<DictionaryScreenWidgets>
               );
             }
             if (snapshot.hasData) {
-              List<Word> list = snapshot.data;
-
+              List<Word> list1 = snapshot.data;
+              List<Word> list = list1.reversed.toList();
               if (isDeleteReadyList.length != list.length) {
                 isDeleteReadyList = List<bool>.filled(list.length, false);
               }
@@ -240,8 +240,7 @@ class _DictionaryScreenWidgetsState extends State<DictionaryScreenWidgets>
         onPressed: () {
           AnalyticsService.logButtonClick('online_translator');
           InfoUtils.checkConnection(context);
-          Provider.of<AdService>(context, listen: false)
-              .showInterstitialAd();
+          Provider.of<AdService>(context, listen: false).showInterstitialAd();
         },
         icon: PhosphorIcon(PhosphorIconsRegular.translate,
             size: 28.sp, color: Theme.of(context).iconTheme.color));
@@ -581,7 +580,7 @@ class _DictionaryScreenWidgetsState extends State<DictionaryScreenWidgets>
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Flexible(
-              flex: 10,
+              flex: 8,
               child: searchBar(),
             ),
             Flexible(flex: 9, child: addNewWordArea()),

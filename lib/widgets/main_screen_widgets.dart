@@ -236,6 +236,7 @@ class _MainScreenWidgetsState extends State<MainScreenWidgets>
     return GestureDetector(
       child: SizedBox(
         height: list[index].language2Name == '' ? 100.h : 200.h,
+        width: 200.h,
         child: Card(
           elevation: 4.r,
           shape: OutlineInputBorder(
@@ -314,6 +315,8 @@ class _MainScreenWidgetsState extends State<MainScreenWidgets>
   cardTitle2(List<Dictionary> list, int index) {
     return AutoSizeText(
       list[index].language2Name,
+      minFontSize: 8,
+      maxFontSize: 28,
       maxLines: 1,
       textAlign: TextAlign.center,
     );

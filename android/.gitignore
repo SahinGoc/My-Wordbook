@@ -8,6 +8,8 @@ GeneratedPluginRegistrant.java
 
 /app/google-service.json
 /app/src/main/res/values/strings.xml
+/key.properties
+/app/keystore.jks
 
 # Remember to never publicly share your keystore.
 # See https://flutter.dev/to/reference-keystore

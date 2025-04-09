@@ -32,6 +32,7 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
   late Future<bool> _fontsFuture;
   late Future<bool> _colorsFuture;
   late bool isDarkTheme;
+  bool isPhone = true;
 
   @override
   void initState() {
@@ -53,6 +54,7 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
           isDarkTheme = themeOps.themeMode == ThemeMode.dark;
         });
       });
+      isPhone = MediaQuery.of(context).size.width < 600;
     });
   }
 
@@ -132,20 +134,27 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //Bakiye
+              // Bakiye
               amountOfMoneyWidgets(),
-              // Store ekranı
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: ListBody(
+              Expanded(
+                child: Column(
                   children: [
-                    headLineStoreWidgets(),
-                    //Kategoriler
-                    categoriesWidgets(),
-                    //Alt Kategoriler
-                    selectedCategoryIndex == 0
-                        ? subcategoriesWidgets(selectedSubCategoryId)
-                        : fontsWidgets()
+                    Expanded(
+                      flex: 3,
+                      child: headLineStoreWidgets(),
+                    ),
+                    // Kategoriler
+                    Expanded(
+                      flex: 4,
+                      child: categoriesWidgets(),
+                    ),
+                    // Alt Kategoriler veya Fontlar
+                    Expanded(
+                      flex: 14,
+                      child: selectedCategoryIndex == 0
+                          ? subcategoriesWidgets(selectedSubCategoryId)
+                          : fontsWidgets(),
+                    ),
                   ],
                 ),
               ),
@@ -155,6 +164,7 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
       },
     );
   }
+
 
   //Bakiye
   amountOfMoneyWidgets() {
@@ -238,28 +248,31 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
   }
 
   headLineStoreWidgets() {
-    return Padding(
-      padding: EdgeInsets.all(8.0.r),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AutoSizeText(
-            'TASARIM',
-            style: TextStyle(
-                fontSize: 24.0.sp,
-                fontWeight: FontWeight.bold,
-                color: ColorUtils.getOptimalTextColor(
-                    context, Theme.of(context).scaffoldBackgroundColor)),
-          ),
-          AutoSizeText(
-            'ATÖLYESİ',
-            style: TextStyle(
-                fontSize: 34.0.sp,
-                fontWeight: FontWeight.bold,
-                color: ColorUtils.getOptimalTextColor(
-                    context, Theme.of(context).scaffoldBackgroundColor)),
-          ),
-        ],
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Padding(
+        padding: EdgeInsets.all(8.0.r),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AutoSizeText(
+              'TASARIM',
+              style: TextStyle(
+                  fontSize: 24.0.sp,
+                  fontWeight: FontWeight.bold,
+                  color: ColorUtils.getOptimalTextColor(
+                      context, Theme.of(context).scaffoldBackgroundColor)),
+            ),
+            AutoSizeText(
+              'ATÖLYESİ',
+              style: TextStyle(
+                  fontSize: 34.0.sp,
+                  fontWeight: FontWeight.bold,
+                  color: ColorUtils.getOptimalTextColor(
+                      context, Theme.of(context).scaffoldBackgroundColor)),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -332,7 +345,7 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
     return Text(
       category.name,
       style: TextStyle(
-          fontSize: 18.sp,
+          fontSize: isPhone ? 18.sp : 32.sp,
           fontWeight: FontWeight.bold,
           color: ColorUtils.getOptimalTextColor(
               context,
@@ -353,8 +366,8 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
     return AutoSizeText(
       list[categoryIndex],
       maxLines: 4,
-      minFontSize: 8,
-      maxFontSize: 13,
+      minFontSize: isPhone ? 8 : 13,
+      maxFontSize: isPhone ? 13 : 18,
       style: TextStyle(
         color: ColorUtils.getOptimalTextColor(
             context,

@@ -323,7 +323,7 @@ class _OnlineTranslatorWidgetsState extends State<OnlineTranslatorWidgets>
 
   languagesRow() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         sourceLanguageBox(),
         swapLanguagesButton(),
