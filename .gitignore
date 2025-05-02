@@ -33,7 +33,7 @@ migrate_working_dir/
 .pub/
 /build/
 **/lib/data/ad_unit_id.dart
-/lib/widgets/cheat_alert.dart
+**/lib/widgets/cheat_alert.dart
 
 # Symbolication related
 app.*.symbols
@@ -49,7 +49,7 @@ app.*.map.json
 /android/key.properties
 /android/app/keystore.jks
 
-/lib/data/
+**/lib/data/
 
 /android/app/google-services.json
 **/GoogleService-Info.plist
