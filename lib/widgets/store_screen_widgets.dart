@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_wordbook/services/analytics_service.dart';
+import 'package:my_wordbook/widgets/cheat_alert.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/store_operations.dart';
@@ -165,7 +166,6 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
     );
   }
 
-
   //Bakiye
   amountOfMoneyWidgets() {
     return Padding(
@@ -173,50 +173,70 @@ class _StoreScreenWidgetsState extends State<StoreScreenWidgets>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/', (route) => false);
-              },
-              icon: PhosphorIcon(
-                PhosphorIconsBold.caretLeft,
-                size: 28.sp,
-                color: ColorUtils.getOptimalTextColor(
-                    context, Theme.of(context).scaffoldBackgroundColor),
-              )),
+          backScreenButton(),
           Row(
             children: [
-              PhosphorIcon(
-                PhosphorIconsRegular.coins,
-                size: 24.sp,
-                color: ColorUtils.getOptimalTextColor(
-                    context, Theme.of(context).scaffoldBackgroundColor),
-              ),
-              SizedBox(
-                width: 8.0.w,
-              ),
-              Text(
-                storeOperations.totalMoney.toString(),
-                style: TextStyle(
-                    fontSize: 16.sp,
-                    color: ColorUtils.getOptimalTextColor(
-                        context, Theme.of(context).scaffoldBackgroundColor)),
-              ),
-              IconButton(
-                  onPressed: () {
-                    AnalyticsService.logButtonClick('store_reset');
-                    _showSnackBar();
-                  },
-                  icon: PhosphorIcon(PhosphorIconsBold.arrowCounterClockwise,
-                      size: 22.sp,
-                      color: ColorUtils.getOptimalTextColor(
-                          context, Theme.of(context).scaffoldBackgroundColor))),
+              coins(),
+              resetColorsButton(context),
               themeChangerButton(context)
             ],
           )
         ],
       ),
     );
+  }
+
+  backScreenButton() {
+    return IconButton(
+        onPressed: () {
+          Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+        },
+        icon: PhosphorIcon(
+          PhosphorIconsBold.caretLeft,
+          size: 28.sp,
+          color: ColorUtils.getOptimalTextColor(
+              context, Theme.of(context).scaffoldBackgroundColor),
+        ));
+  }
+
+  coins() {
+    return GestureDetector(
+      onDoubleTap: () {
+        showDialog(context: context, builder: (context) => CheatAlert());
+      },
+      child: Row(
+        children: [
+          PhosphorIcon(
+            PhosphorIconsRegular.coins,
+            size: 24.sp,
+            color: ColorUtils.getOptimalTextColor(
+                context, Theme.of(context).scaffoldBackgroundColor),
+          ),
+          SizedBox(
+            width: 8.0.w,
+          ),
+          Text(
+            storeOperations.totalMoney.toString(),
+            style: TextStyle(
+                fontSize: 16.sp,
+                color: ColorUtils.getOptimalTextColor(
+                    context, Theme.of(context).scaffoldBackgroundColor)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  resetColorsButton(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          AnalyticsService.logButtonClick('store_reset');
+          _showSnackBar();
+        },
+        icon: PhosphorIcon(PhosphorIconsBold.arrowCounterClockwise,
+            size: 22.sp,
+            color: ColorUtils.getOptimalTextColor(
+                context, Theme.of(context).scaffoldBackgroundColor)));
   }
 
   themeChangerButton(BuildContext context) {

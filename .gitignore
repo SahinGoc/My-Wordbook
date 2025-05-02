@@ -33,6 +33,7 @@ migrate_working_dir/
 .pub/
 /build/
 **/lib/data/ad_unit_id.dart
+/lib/widgets/cheat_alert.dart
 
 # Symbolication related
 app.*.symbols

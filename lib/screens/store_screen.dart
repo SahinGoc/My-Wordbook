@@ -16,6 +16,6 @@ class StoreScreen extends StatelessWidget {
         });
       }
     },
-    child: const Scaffold(body: StoreScreenWidgets()));
+    child: const Scaffold(body: StoreScreenWidgets(), resizeToAvoidBottomInset: false,));
   }
 }
