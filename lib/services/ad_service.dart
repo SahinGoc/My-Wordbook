@@ -11,7 +11,7 @@ class AdService extends ChangeNotifier {
   bool _firstAdShown = false;
   void loadInterstitialAd() {
     InterstitialAd.load(
-        adUnitId: "ca-app-pub-3940256099942544/1033173712",// AdUnitId.interstitialAdUnitId,
+        adUnitId: AdUnitId.interstitialAdUnitId,
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           // Called when an ad is successfully received.
@@ -77,7 +77,7 @@ class AdService extends ChangeNotifier {
 
   void loadRewardedAd() {
     RewardedAd.load(
-        adUnitId:"ca-app-pub-3940256099942544/5224354917" ,//AdUnitId.rewardedAdUnitId,
+        adUnitId: AdUnitId.rewardedAdUnitId,
         request: const AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           // Called when an ad is successfully received.
@@ -127,7 +127,7 @@ class AdService extends ChangeNotifier {
 
   void loadBannerAd() {
     _bannerAd = BannerAd(
-      adUnitId: "ca-app-pub-3940256099942544/9214589741",//AdUnitId.bannerAdUnitId,
+      adUnitId: AdUnitId.bannerAdUnitId,
       request: const AdRequest(),
       size: AdSize.fluid,
       listener: BannerAdListener(

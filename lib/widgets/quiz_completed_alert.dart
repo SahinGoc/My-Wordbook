@@ -322,7 +322,7 @@ class _QuizCompletedAlertState extends State<QuizCompletedAlert> {
                   context, Theme.of(context).scaffoldBackgroundColor)),
         ),
         Text(
-          "50",
+          "20",
           style: TextStyle(
             fontSize: 14.sp * Provider.of<ThemeOperations>(context)
               .getTextScaleFactor(context),

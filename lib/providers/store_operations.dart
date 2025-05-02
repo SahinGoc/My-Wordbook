@@ -23,19 +23,19 @@ class StoreOperations extends ChangeNotifier {
 
 
   //PARA İŞLEMLERİ
-  int _totalMoney = 2000;
+  int _totalMoney = 500;
   int get totalMoney => _totalMoney;
 
   //Parayı yükleme
   Future<void> loadTotalMoney() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _totalMoney = prefs.getInt('money') ?? 2000;
+    _totalMoney = prefs.getInt('money') ?? 500;
   }
 
   //Parayı artırma veya azaltma
   Future<bool> calculateMoney(int money) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    int currentMoney = prefs.getInt('money') ?? 2000;
+    int currentMoney = prefs.getInt('money') ?? 500;
 
     if (currentMoney + money >= 0) {
       int updatedMoney = currentMoney + money;

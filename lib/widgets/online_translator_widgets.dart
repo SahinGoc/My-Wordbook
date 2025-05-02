@@ -459,9 +459,9 @@ class _OnlineTranslatorWidgetsState extends State<OnlineTranslatorWidgets>
               size: 28.sp,
               color: ColorUtils.getOptimalTextColor(
                   context, Theme.of(context).scaffoldBackgroundColor)),
-          onPressed: () {
+          onPressed: () async {
             if (translationResult.isNotEmpty) {
-              Clipboard.setData(ClipboardData(text: translationResult));
+              await Clipboard.setData(ClipboardData(text: translationResult));
               AnalyticsService.logButtonClick('translator_result_copy');
               InfoUtils.showToast('Kopyalandı');
             }
