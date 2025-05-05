@@ -26,8 +26,8 @@
 ## 📥 İndirme ve Kullanım  
 Uygulamayı Google Play Store'dan indirerek hemen kullanmaya başlayabilirsiniz!  
 
-📌 **İndirmek için:** [Beklemede kalın](#)  
+📌 **İndirmek için:** [BURAYA TIKLA](https://play.google.com/store/apps/details?id=com.codewings.my_wordbook)  
 
 ---
 
-Eğer önerilerin varsa veya hata bildirimi yapmak istersen, lütfen bizimle iletişime geç! 📩  
+Eğer önerilerin varsa veya hata bildirimi yapmak istersen 'codewingsapps@gmail.com' adresinden lütfen bizimle iletişime geç! 📩  
