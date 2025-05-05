@@ -30,4 +30,4 @@ Uygulamayı Google Play Store'dan indirerek hemen kullanmaya başlayabilirsiniz!
 
 ---
 
-Eğer önerilerin varsa veya hata bildirimi yapmak istersen 'codewingsapps@gmail.com' adresinden lütfen bizimle iletişime geç! 📩  
+Eğer önerilerin varsa veya hata bildirimi yapmak istersen 'codewings.apps@gmail.com' adresinden lütfen bizimle iletişime geç! 📩  
